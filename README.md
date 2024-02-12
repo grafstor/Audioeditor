@@ -1,3 +1,3 @@
 # Audioeditor
  
-![Audioeditor v0.1.0 screenshot](https://github.com/grafstor/Audioeditor/blob/main/Audioeditor.jpg?raw=true)
+![v0.1.0](/blob/main/Audioeditor.jpg?raw=true)
