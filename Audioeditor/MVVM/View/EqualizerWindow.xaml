@@ -1,0 +1,47 @@
+﻿<Window x:Class="Audioeditor.MVVM.View.EqualizerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Audioeditor.MVVM.View"
+        mc:Ignorable="d"
+                
+        Background="#000000"
+        Foreground="#ffffff"
+        Icon="../../Icons/Logo_b.png"
+        Title="Эквализатор" Height="320" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0"  Margin="20,40,0,40" >
+            <Slider x:Name="LowFreqSlider" HorizontalAlignment="Center" Minimum="-1" Margin="0,0,0,14" Maximum="3" Value="1" Height="150" Orientation="Vertical"
+                    ValueChanged="LowFreqSlider_ValueChanged" />
+            <Label HorizontalAlignment="Center"
+                   Content="Низкие"
+                   FontSize="15"
+                   MinWidth="60px"
+                   Foreground="#A6A7B3" />
+        </StackPanel>
+        <StackPanel Grid.Column="1"  Margin="0,40,0,40">
+            <Slider x:Name="MidFreqSlider" HorizontalAlignment="Center" Minimum="-1" Margin="0,0,0,14" Maximum="3" Value="1"  Height="150" Orientation="Vertical"
+                    ValueChanged="MidFreqSlider_ValueChanged" />
+            <Label HorizontalAlignment="Center"
+                   Content="Средние"
+                   FontSize="15"
+                   MinWidth="60px"
+                   Foreground="#A6A7B3" />
+        </StackPanel>
+        <StackPanel Grid.Column="2"  Margin="0,40,20,40">
+            <Slider x:Name="HighFreqSlider" HorizontalAlignment="Center" Minimum="-1" Margin="0,0,0,14" Maximum="3" Value="1" Height="150" Orientation="Vertical"
+                    ValueChanged="HighFreqSlider_ValueChanged" />
+            <Label HorizontalAlignment="Center"
+                   Content="Высокие"
+                   FontSize="15"
+                   MinWidth="60px"
+                   Foreground="#A6A7B3" />
+        </StackPanel>
+    </Grid>
+</Window>

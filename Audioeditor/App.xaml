@@ -1,0 +1,17 @@
+﻿<Application x:Class="Audioeditor.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Themes/TrackCard.xaml" />
+                <ResourceDictionary Source="./Themes/СhannelCard.xaml" />
+                <ResourceDictionary Source="./Themes/CustomScrollbar.xaml" />
+                <ResourceDictionary Source="./Themes/CustomSlider.xaml" />
+                <ResourceDictionary Source="./Themes/CustomMenu.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <FontFamily x:Key="Inter">/Fonts/Inter.ttf#Inter</FontFamily>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

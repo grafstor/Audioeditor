@@ -1,0 +1,243 @@
+﻿<Window x:Class="Audioeditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
+        mc:Ignorable="d"
+
+        Title="Аудиоредактор" Height="850" Width="1320"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip"
+
+        BorderThickness="1"
+        BorderBrush="#3B3C46"
+
+        AllowDrop="True"
+        
+        Background="#000000"
+        Foreground="#ffffff"
+
+        ContextMenuService.IsEnabled="True"
+        
+        KeyDown="Window_KeyDown"
+
+        FontFamily="{StaticResource Inter}">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="57" MaxHeight="57" MinHeight="57" />
+            <RowDefinition Height="57" MaxHeight="57" MinHeight="57" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" MinHeight="300" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="270" MinWidth="40" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                Background="#000000"
+                MouseDown="BorderMouseDown" />
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    Margin="0">
+
+            <Image HorizontalAlignment="Left"
+                   Source="/Icons/Logo_b.png"
+                   Width="18.11"
+                   Margin="17,0,5,0"
+                   RenderOptions.BitmapScalingMode="Fant" />
+
+            <Menu FontSize="15px"
+                  Background="#000000"
+                  Foreground="#A6A7B3"
+                  Padding="8,0,8,0"
+                  Height="57"
+                  HorizontalAlignment="Left"
+                  FontFamily="{StaticResource Inter}">
+
+                <MenuItem Header="Файл" Padding="10,18,10,18" Height="57">
+                    <MenuItem Header="Новый" Click="NewMenu_Click" />
+                    <MenuItem Header="Открыть" Click="OpenMenu_Click" />
+                    <MenuItem Header="Сохранить" Click="SaveMenu_Click" />
+                    <MenuItem Header="Сохранить как" Click="SaveAsMenu_Click" />
+                    <MenuItem Header="Экспорт" Click="ExportMenu_Click" />
+                </MenuItem>
+
+                <MenuItem Header="Редактирование" Padding="10,18,10,18" Height="57">
+                    <MenuItem Header="Снять выделение" Click="DeselectMenu_Click" />
+                    <MenuItem Header="Разрезать" Click="CutMenu_Click" />
+                    <MenuItem Header="Дублировать" Click="DoubleMenu_Click" />
+                </MenuItem>
+
+                <MenuItem Header="Эффекты" Padding="10,18,10,18" Height="57">
+                    <MenuItem Header="Быстрая компрессия" Click="CompressMenu_Click" />
+                    <MenuItem Header="Быстрая реверберация" Click="ReverbMenu_Click" />
+                    <MenuItem Header="Плавное затухание" Click="FadeoutMenu_Click" />
+                    <MenuItem Header="Плавное включение" Click="FadeinMenu_Click" />
+                </MenuItem>
+
+                <Menu.Resources>
+                    <Style TargetType="{x:Type MenuItem}">
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="Background" Value="#000000"></Setter>
+                    </Style>
+                </Menu.Resources>
+            </Menu>
+
+            <TextBlock x:Name="ConsoleTextBlock" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    Margin="0">
+
+            <Button Width="57" Height="57"
+                    Content="─"
+                    FontSize="20px"
+                    FontWeight="Light"
+                    Foreground="#404255"
+                    Background="#000000"
+                    BorderThickness="0"
+                    Padding="0,0,0,3"
+                    Click="MinimizeButtonClick" />
+
+            <Button Width="57" Height="57"
+                    Content="◻"
+                    FontSize="20px"
+                    FontWeight="Light"
+                    Foreground="#404255"
+                    Background="#000000"
+                    BorderThickness="0"
+                    Padding="0,0,0,2"
+                    Click="WindowStateButtonClick" />
+
+            <Button Width="57" Height="57"
+                    Content="✕"
+                    FontSize="17px"
+                    FontWeight="Bold"
+                    Foreground="#404255"
+                    Background="#000000"
+                    BorderThickness="0"
+                    Padding="0,0,0,2"
+                    Click="CloseButtonClick" />
+        </StackPanel>
+
+        <GridSplitter Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                      Height="1"
+                      HorizontalAlignment="Stretch"
+                      Background="#1E1F24"
+                      VerticalAlignment="Bottom"
+                      IsEnabled="False"
+                      ShowsPreview="False" />
+
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    Margin="0">
+            <TextBlock x:Name="TimeRunnerPosition"
+                       FontSize="18"
+                       Margin="21,0,0,0"
+                       Foreground="#A6A7B3" />
+            <Image x:Name="pauseButton"
+                   Visibility="Collapsed"
+                   Height="15"
+                   Cursor="Hand"
+                   Source="/Icons/pause_b.png"
+                   Margin="30,0,0,0"
+                   RenderOptions.BitmapScalingMode="Fant" />
+            <Image x:Name="playButton"
+                   Height="15"
+                   Cursor="Hand"
+                   Source="/Icons/play_b.png"
+                   Margin="30,0,0,0"
+                   RenderOptions.BitmapScalingMode="Fant" />
+            <Image x:Name="beginButton"
+                   Height="12"
+                   Cursor="Hand"
+                   Source="/Icons/begin_b.png"
+                   Margin="30,0,0,0"
+                   RenderOptions.BitmapScalingMode="Fant" />
+        </StackPanel>
+
+        <GridSplitter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                      Height="1"
+                      HorizontalAlignment="Stretch"
+                      Background="#1E1F24"
+                      VerticalAlignment="Bottom"
+                      IsEnabled="False"
+                      ShowsPreview="False" />
+
+        <ListView Grid.Row="2" Grid.Column="0"
+                  BorderThickness="0"
+                  Background="Transparent"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  ScrollViewer.CanContentScroll="False"
+                  ItemsSource="{Binding Tracks}"
+                  x:Name="TrackCardListView"
+                  ScrollViewer.ScrollChanged="ListView1ScrollChanged"
+                  ItemContainerStyle="{StaticResource TrackCard}" />
+
+        <ListView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                  BorderThickness="0"
+                  Background="#000000"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  ScrollViewer.CanContentScroll="False"
+                  ItemsSource="{Binding Channels}"
+                  x:Name="ListView3"
+                  ItemContainerStyle="{StaticResource СhannelCard}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                     <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+
+        <ScrollViewer Grid.Row="2" Grid.Column="1" x:Name="CanvasScrollViewer"
+                      SizeChanged="CanvasScrollViewer_SizeChanged"
+                      ScrollViewer.ScrollChanged="ListView2ScrollChanged"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Canvas VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                    x:Name="WorkFieldCanvas" Background="#000000"
+                    Height="Auto" ZIndex="0" Focusable="True" />
+        </ScrollViewer>
+
+        <GridSplitter Grid.Row="2" Grid.Column="0"
+                      Width="6"
+                      HorizontalAlignment="Right"
+                      Background="Transparent"
+                      VerticalAlignment="Stretch"
+                      ShowsPreview="False" />
+
+        <GridSplitter Grid.Row="2" Grid.Column="0"
+                      Width="1"
+                      HorizontalAlignment="Right"
+                      Background="#1E1F24"
+                      VerticalAlignment="Stretch"
+                      ShowsPreview="False"
+                      IsEnabled="False" />
+
+        <GridSplitter Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                      Height="6"
+                      HorizontalAlignment="Stretch"
+                      Background="Transparent"
+                      VerticalAlignment="Top"
+                      ShowsPreview="False" />
+
+        <GridSplitter Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                      Height="1"
+                      HorizontalAlignment="Stretch"
+                      Background="#1E1F24"
+                      VerticalAlignment="Top"
+                      ShowsPreview="False"
+                      IsEnabled="False" />
+    </Grid>
+</Window>
