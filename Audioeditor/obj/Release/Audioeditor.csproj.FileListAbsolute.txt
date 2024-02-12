@@ -3,20 +3,8 @@ E:\projects\AudioEditor\Audioeditor\bin\Release\libmp3lame.64.dll
 E:\projects\AudioEditor\Audioeditor\bin\Release\Audioeditor.exe.config
 E:\projects\AudioEditor\Audioeditor\bin\Release\Audioeditor.exe
 E:\projects\AudioEditor\Audioeditor\bin\Release\Audioeditor.pdb
-E:\projects\AudioEditor\Audioeditor\bin\Release\Microsoft.Win32.Registry.dll
-E:\projects\AudioEditor\Audioeditor\bin\Release\NAudio.Asio.dll
-E:\projects\AudioEditor\Audioeditor\bin\Release\NAudio.Core.dll
-E:\projects\AudioEditor\Audioeditor\bin\Release\NAudio.dll
-E:\projects\AudioEditor\Audioeditor\bin\Release\NAudio.Lame.dll
-E:\projects\AudioEditor\Audioeditor\bin\Release\NAudio.Midi.dll
-E:\projects\AudioEditor\Audioeditor\bin\Release\NAudio.Wasapi.dll
-E:\projects\AudioEditor\Audioeditor\bin\Release\NAudio.WinForms.dll
-E:\projects\AudioEditor\Audioeditor\bin\Release\NAudio.WinMM.dll
-E:\projects\AudioEditor\Audioeditor\bin\Release\System.Security.AccessControl.dll
-E:\projects\AudioEditor\Audioeditor\bin\Release\System.Security.Principal.Windows.dll
 E:\projects\AudioEditor\Audioeditor\bin\Release\Microsoft.Win32.Registry.xml
 E:\projects\AudioEditor\Audioeditor\bin\Release\NAudio.xml
-E:\projects\AudioEditor\Audioeditor\bin\Release\NAudio.Lame.pdb
 E:\projects\AudioEditor\Audioeditor\bin\Release\System.Security.AccessControl.xml
 E:\projects\AudioEditor\Audioeditor\bin\Release\System.Security.Principal.Windows.xml
 E:\projects\AudioEditor\Audioeditor\obj\Release\Audioeditor.csproj.AssemblyReference.cache
@@ -47,3 +35,5 @@ E:\projects\AudioEditor\Audioeditor\obj\Release\MVVM\View\EqualizerWindow.baml
 E:\projects\AudioEditor\Audioeditor\obj\Release\MVVM\View\CompressorWindow.g.cs
 E:\projects\AudioEditor\Audioeditor\obj\Release\MVVM\View\CompressorWindow.baml
 E:\projects\AudioEditor\Audioeditor\obj\Release\Themes\CustomScrollbar.baml
+E:\projects\AudioEditor\Audioeditor\bin\Release\System.Diagnostics.DiagnosticSource.xml
+E:\projects\AudioEditor\Audioeditor\obj\Release\Audioeditor.csproj.Fody.CopyLocal.cache

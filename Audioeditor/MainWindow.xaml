@@ -18,6 +18,8 @@
         
         Background="#000000"
         Foreground="#ffffff"
+        
+        Icon="Icons/Logo.ico"
 
         ContextMenuService.IsEnabled="True"
         

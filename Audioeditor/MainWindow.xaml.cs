@@ -27,7 +27,7 @@ namespace Audioeditor
             InitializeComponent();
 
             LOL.C = ConsoleTextBlock;
-            LOL.C.Text = "Im working";
+            LOL.C.Text = "";
             
             viewModel = new MainViewModel();
             viewModel.Init(this);
